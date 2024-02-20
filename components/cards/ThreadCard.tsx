@@ -88,7 +88,7 @@ function ThreadCard({
                   className="cursor-pointer object-contain"
                 /> */}
                 <ShareButton
-                  url={`https://stalega-app.vercel.app//thread/${id}`}
+                  url={`https://stalega.gr//thread/${id}`}
                   title={content}
                 />
               </div>
