@@ -88,7 +88,7 @@ function ThreadCard({
                   className="cursor-pointer object-contain"
                 /> */}
                 <ShareButton
-                  url={`https://stalega.gr//thread/${id}`}
+                  url={`https://stalega.gr/thread/${id}`}
                   title={content}
                 />
               </div>
