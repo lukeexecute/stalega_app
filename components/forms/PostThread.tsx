@@ -1,5 +1,6 @@
 "use client";
 
+import React, { useState } from "react"; // Step 1
 import * as z from "zod";
 import { useForm } from "react-hook-form";
 import { useOrganization } from "@clerk/nextjs";
@@ -29,6 +30,7 @@ function PostThread({ userId }: Props) {
   const pathname = usePathname();
 
   const { organization } = useOrganization();
+  const [characterCount, setCharacterCount] = useState(0); // Step 2
 
   const form = useForm<z.infer<typeof ThreadValidation>>({
     resolver: zodResolver(ThreadValidation),
@@ -64,9 +66,22 @@ function PostThread({ userId }: Props) {
                 Statement Text
               </FormLabel>
               <FormControl className="no-focus border border-dark-4 bg-dark-3 text-light-1">
-                <Textarea rows={15} {...field} />
+                <Textarea
+                  rows={15}
+                  {...field}
+                  onChange={(e) => {
+                    field.onChange(e); // Call the form's onChange
+                    setCharacterCount(e.target.value.length); // Step 3: Update character count
+                  }}
+                />
               </FormControl>
               <FormMessage />
+              <div
+                className="text-right text-light-2"
+                style={{ color: characterCount > 140 ? "red" : "white" }} // Conditional color change
+              >
+                {characterCount} / 140
+              </div>
             </FormItem>
           )}
         />
