@@ -67,7 +67,7 @@ function PostThread({ userId }: Props) {
               </FormLabel>
               <FormControl className="no-focus border border-dark-4 bg-dark-3 text-light-1">
                 <Textarea
-                  rows={15}
+                  rows={3}
                   {...field}
                   onChange={(e) => {
                     field.onChange(e); // Call the form's onChange
@@ -77,7 +77,7 @@ function PostThread({ userId }: Props) {
               </FormControl>
               <FormMessage />
               <div
-                className="text-right text-light-2"
+                className="text-right text-small-semibold text-light-2"
                 style={{ color: characterCount > 140 ? "red" : "white" }} // Conditional color change
               >
                 {characterCount} / 140
@@ -86,7 +86,7 @@ function PostThread({ userId }: Props) {
           )}
         />
 
-        <Button type="submit" className="bg-primary-500">
+        <Button type="submit" className="w-1/4 bg-primary-500">
           Post Statement
         </Button>
       </form>

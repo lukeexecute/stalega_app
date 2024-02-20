@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import ShareButton from "../shared/ShareButton";
 
 import { formatDateString } from "@/lib/utils";
 // import DeleteThread from "../forms/DeleteThread";
@@ -80,34 +81,15 @@ function ThreadCard({
             <div className={`${isComment && "mb-10"} mt-5 flex flex-col gap-3`}>
               <div className="flex gap-3.5">
                 {/* <Image
-                  src="/assets/heart-gray.svg"
-                  alt="heart"
-                  width={24}
-                  height={24}
-                  className="cursor-pointer object-contain"
-                /> */}
-                {/* <Link href={`/thread/${id}`}>
-                  <Image
-                    src='/assets/reply.svg'
-                    alt='heart'
-                    width={24}
-                    height={24}
-                    className='cursor-pointer object-contain'
-                  />
-                </Link> */}
-                {/* <Image
-                  src='/assets/repost.svg'
-                  alt='heart'
-                  width={24}
-                  height={24}
-                  className='cursor-pointer object-contain'
-                /> */}
-                <Image
                   src="/assets/share.svg"
                   alt="heart"
                   width={24}
                   height={24}
                   className="cursor-pointer object-contain"
+                /> */}
+                <ShareButton
+                  url={`https://stalega-app.vercel.app//thread/${id}`}
+                  title={content}
                 />
               </div>
 
